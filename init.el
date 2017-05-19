@@ -154,7 +154,7 @@
 
 (use-package solarized-theme
   :config
-  (load-them 'solarized-light t))
+  (load-theme 'solarized-light t))
 
 (progn ;     startup
   (message "Loading %s...done (%.3fs)" user-init-file
