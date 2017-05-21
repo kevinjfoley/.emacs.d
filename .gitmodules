@@ -46,6 +46,15 @@
 [submodule "solarized-theme"]
 	path = lib/solarized-theme
 	url = git@github.com:bbatsov/solarized-emacs.git
+[submodule "elpy"]
+	path = lib/elpy
+	url = git@github.com:jorgenschaefer/elpy.git
 [submodule "org"]
 	path = lib/org
 	url = git://orgmode.org/org-mode.git
+[submodule "pyvenv"]
+	path = lib/pyvenv
+	url = git@github.com:jorgenschaefer/pyvenv.git
+[submodule "s"]
+	path = lib/s
+	url = git@github.com:magnars/s.el.git
