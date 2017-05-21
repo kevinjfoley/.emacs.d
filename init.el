@@ -156,6 +156,14 @@
   :config
   (load-theme 'solarized-light t))
 
+(use-package org
+  :defer t
+  :init
+  (add-hook 'org-mode-hook #'visual-line-mode) ;Wraps text based on word boundries
+  :config
+  (setq org-startup-indented t)         ; Cleaner look
+  (setq org-log-done t))
+
 (progn ;     startup
   (message "Loading %s...done (%.3fs)" user-init-file
            (float-time (time-subtract (current-time)

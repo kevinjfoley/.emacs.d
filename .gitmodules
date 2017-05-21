@@ -46,3 +46,6 @@
 [submodule "solarized-theme"]
 	path = lib/solarized-theme
 	url = git@github.com:bbatsov/solarized-emacs.git
+[submodule "org"]
+	path = lib/org
+	url = git://orgmode.org/org-mode.git
