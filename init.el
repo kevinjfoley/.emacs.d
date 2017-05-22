@@ -164,6 +164,28 @@
   (setq org-startup-indented t)         ; Cleaner look
   (setq org-log-done t))
 
+(use-package company                    ; Graphical (auto-)completion
+  :init
+  (global-company-mode)
+  :config
+  (setq
+   company-tooltip-align-annotations t
+   company-tooltip-flip-when-above t
+   ;; Easy navigation to candidates with M-<n>
+   company-show-numbers t
+   company-minimum-prefix-length 3
+   company-idle-delay 1)
+  :bind (:map company-active-map
+              ;; Use C-n and C-p to navigate suggestions
+              ("C-n" . company-select-next)
+              ("C-p" . company-select-previous)))
+
+(use-package elpy
+  :defer t
+  :init
+  (add-hook 'python-mode-hook #'elpy-mode)
+  (setq elpy-rpc-backend "jedi"))
+
 (progn ;     startup
   (message "Loading %s...done (%.3fs)" user-init-file
            (float-time (time-subtract (current-time)
