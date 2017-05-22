@@ -52,6 +52,9 @@
 [submodule "elpy"]
 	path = lib/elpy
 	url = git@github.com:jorgenschaefer/elpy.git
+[submodule "highlight-indentation"]
+	path = lib/highlight-indentation
+	url = git@github.com:antonj/Highlight-Indentation-for-Emacs.git
 [submodule "org"]
 	path = lib/org
 	url = git://orgmode.org/org-mode.git
@@ -61,3 +64,6 @@
 [submodule "s"]
 	path = lib/s
 	url = git@github.com:magnars/s.el.git
+[submodule "yasnippet"]
+	path = lib/yasnippet
+	url = git@github.com:joaotavora/yasnippet.git
