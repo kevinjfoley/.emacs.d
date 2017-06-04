@@ -193,6 +193,16 @@
   :bind
   ("M-p" . ace-window))
 
+(use-package ivy                        ; Minibuffer completion
+  :defer t
+  :init (ivy-mode 1)
+  ;; :bind (("C-c b r" . ivy-resume))
+  :config
+  ;; Include recentf and bookmarks to switch buffer, and tune the count format.
+  ;; (validate-setq ivy-use-virtual-buffers t
+  ;;                ivy-count-format "(%d/%d) ")
+  :diminish ivy-mode)
+
 (progn ;     startup
   (message "Loading %s...done (%.3fs)" user-init-file
            (float-time (time-subtract (current-time)

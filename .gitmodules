@@ -45,10 +45,19 @@
 [submodule "highlight-indentation"]
 	path = lib/highlight-indentation
 	url = git@github.com:antonj/Highlight-Indentation-for-Emacs.git
+[submodule "hydra"]
+	path = lib/hydra
+	url = git@github.com:abo-abo/hydra.git
+[submodule "ivy"]
+	path = lib/ivy
+	url = git@github.com:abo-abo/swiper.git
 [submodule "magit"]
 	path = lib/magit
 	url = git@github.com:magit/magit.git
 	info-path = Documentation
+[submodule "multiple-cursors"]
+	path = lib/multiple-cursors
+	url = git@github.com:magnars/multiple-cursors.el.git
 [submodule "org"]
 	path = lib/org
 	url = git://orgmode.org/org-mode.git
