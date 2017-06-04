@@ -12,7 +12,7 @@
   (setq package-enable-at-startup nil)
   (setq inhibit-startup-buffer-menu t)
   (setq inhibit-startup-screen t)
-  (setq inhibit-startup-echo-area-message "locutus")
+  (setq inhibit-startup-echo-area-message "kevin")
   (setq initial-buffer-choice t)
   (setq initial-scratch-message "")
   (setq load-prefer-newer t)
