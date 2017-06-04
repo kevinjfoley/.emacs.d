@@ -1,15 +1,24 @@
 [borg]
 	pushDefault = locutus
 	collective = emacsg
+[submodule "ace-window"]
+	path = lib/ace-window
+	url = git@github.com:abo-abo/ace-window.git
 [submodule "auto-compile"]
 	path = lib/auto-compile
 	url = git@github.com:tarsius/auto-compile.git
+[submodule "avy"]
+	path = lib/avy
+	url = git@github.com:abo-abo/avy.git
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
 [submodule "closql"]
 	path = lib/closql
 	url = git@github.com:emacscollective/closql.git
+[submodule "company"]
+	path = lib/company
+	url = git@github.com:company-mode/company-mode.git
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
@@ -17,6 +26,9 @@
 [submodule "diff-hl"]
 	path = lib/diff-hl
 	url = git@github.com:dgutov/diff-hl.git
+[submodule "elpy"]
+	path = lib/elpy
+	url = git@github.com:jorgenschaefer/elpy.git
 [submodule "emacsql"]
 	path = lib/emacsql
 	url = git@github.com:skeeto/emacsql.git
@@ -30,40 +42,34 @@
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
+[submodule "highlight-indentation"]
+	path = lib/highlight-indentation
+	url = git@github.com:antonj/Highlight-Indentation-for-Emacs.git
 [submodule "magit"]
 	path = lib/magit
 	url = git@github.com:magit/magit.git
 	info-path = Documentation
-[submodule "packed"]
-	path = lib/packed
-	url = git@github.com:tarsius/packed.git
-[submodule "use-package"]
-	path = lib/use-package
-	url = git@github.com:jwiegley/use-package.git
-[submodule "with-editor"]
-	path = lib/with-editor
-	url = git@github.com:magit/with-editor.git
-[submodule "solarized-theme"]
-	path = lib/solarized-theme
-	url = git@github.com:bbatsov/solarized-emacs.git
-[submodule "company"]
-	path = lib/company
-	url = git@github.com:company-mode/company-mode.git
-[submodule "elpy"]
-	path = lib/elpy
-	url = git@github.com:jorgenschaefer/elpy.git
-[submodule "highlight-indentation"]
-	path = lib/highlight-indentation
-	url = git@github.com:antonj/Highlight-Indentation-for-Emacs.git
 [submodule "org"]
 	path = lib/org
 	url = git://orgmode.org/org-mode.git
+[submodule "packed"]
+	path = lib/packed
+	url = git@github.com:tarsius/packed.git
 [submodule "pyvenv"]
 	path = lib/pyvenv
 	url = git@github.com:jorgenschaefer/pyvenv.git
 [submodule "s"]
 	path = lib/s
 	url = git@github.com:magnars/s.el.git
+[submodule "solarized-theme"]
+	path = lib/solarized-theme
+	url = git@github.com:bbatsov/solarized-emacs.git
+[submodule "use-package"]
+	path = lib/use-package
+	url = git@github.com:jwiegley/use-package.git
+[submodule "with-editor"]
+	path = lib/with-editor
+	url = git@github.com:magit/with-editor.git
 [submodule "yasnippet"]
 	path = lib/yasnippet
 	url = git@github.com:joaotavora/yasnippet.git

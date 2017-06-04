@@ -186,6 +186,13 @@
   (add-hook 'python-mode-hook #'elpy-mode)
   (setq elpy-rpc-backend "jedi"))
 
+(use-package ace-window
+  :defer t
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  :bind
+  ("M-p" . ace-window))
+
 (progn ;     startup
   (message "Loading %s...done (%.3fs)" user-init-file
            (float-time (time-subtract (current-time)
