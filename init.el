@@ -196,11 +196,16 @@
 (use-package ivy                        ; Minibuffer completion
   :defer t
   :init (ivy-mode 1)
-  ;; :bind (("C-c b r" . ivy-resume))
+  :bind (
+         ("C-c b r" . ivy-resume)
+         ("C-s" . swiper))
   :config
   ;; Include recentf and bookmarks to switch buffer, and tune the count format.
-  ;; (validate-setq ivy-use-virtual-buffers t
-  ;;                ivy-count-format "(%d/%d) ")
+  (setq ivy-use-virtual-buffers t
+        ivy-count-format "(%d/%d) "
+        enable-recursive-minibuffers t
+        ivy-re-builders-alist
+        '((t . ivy--regex-fuzzy)))      ;Uses flx-more matches, better sorting
   :diminish ivy-mode)
 
 (progn ;     startup
