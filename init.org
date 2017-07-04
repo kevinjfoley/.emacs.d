@@ -1,5 +1,5 @@
 #+PROPERTY: header-args:emacs-lisp :tangle yes
-* Borg init.el
+* Setup
 #+BEGIN_SRC emacs-lisp
   ;;; init.el --- user-init-file                    -*- lexical-binding: t -*-
   ;;; Early birds
@@ -24,6 +24,9 @@
     (menu-bar-mode 0)
     (add-to-list 'exec-path "/home/kevin/anaconda/bin"))
 
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
   (progn ;    `borg'
     (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
     (require  'borg)
@@ -65,6 +68,9 @@
              (float-time (time-subtract (current-time)
                                         before-user-init-time))))
 
+#+END_SRC
+* Borg init.el
+#+BEGIN_SRC emacs-lisp
   ;;; Long tail
 
   (use-package dash
@@ -219,37 +225,40 @@
           '((t . ivy--regex-fuzzy)))      ;Uses flx-more matches, better sorting
     :diminish ivy-mode)
 
-  (progn ;     startup
-    (message "Loading %s...done (%.3fs)" user-init-file
-             (float-time (time-subtract (current-time)
-                                        before-user-init-time)))
-    (add-hook 'after-init-hook
-              (lambda ()
-                (message
-                 "Loading %s...done (%.3fs) [after-init]" user-init-file
-                 (float-time (time-subtract (current-time)
-                                            before-user-init-time))))
-              t))
+#+END_SRC
+* EOF
+#+BEGIN_SRC emacs-lisp
+(progn ;     startup
+  (message "Loading %s...done (%.3fs)" user-init-file
+           (float-time (time-subtract (current-time)
+                                      before-user-init-time)))
+  (add-hook 'after-init-hook
+            (lambda ()
+              (message
+               "Loading %s...done (%.3fs) [after-init]" user-init-file
+               (float-time (time-subtract (current-time)
+                                          before-user-init-time))))
+            t))
 
-  (progn ;     personalize
-    (let ((file (expand-file-name (concat (user-real-login-name) ".el")
-                                  user-emacs-directory)))
-      (when (file-exists-p file)
-        (load file))))
+(progn ;     personalize
+  (let ((file (expand-file-name (concat (user-real-login-name) ".el")
+                                user-emacs-directory)))
+    (when (file-exists-p file)
+      (load file))))
 
-  (with-eval-after-load 'python
-    (defun python-shell-completion-native-try ()
-      "Return non-nil if can trigger native completion."
-      (let ((python-shell-completion-native-enable t)
-            (python-shell-completion-native-output-timeout
-             python-shell-completion-native-try-output-timeout))
-        (python-shell-completion-native-get-completions
-         (get-buffer-process (current-buffer))
-         nil "_"))))
-  ;; Local Variables:
-  ;; indent-tabs-mode: nil
-  ;; End:
-  ;;; init.el ends here
+(with-eval-after-load 'python
+  (defun python-shell-completion-native-try ()
+    "Return non-nil if can trigger native completion."
+    (let ((python-shell-completion-native-enable t)
+          (python-shell-completion-native-output-timeout
+           python-shell-completion-native-try-output-timeout))
+      (python-shell-completion-native-get-completions
+       (get-buffer-process (current-buffer))
+       nil "_"))))
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+;;; init.el ends here
 #+END_SRC
 * Local Variables
 Source: eschwab
@@ -258,4 +267,3 @@ Create a buffer-local after-save-hook to tangle the lisp.
 ;; Local Variables:
 ;; eval: (add-hook 'after-save-hook (lambda ()(org-babel-tangle)) nil t)
 ;; End:
-
