@@ -18,7 +18,8 @@
   (setq load-prefer-newer t)
   (scroll-bar-mode 0)
   (tool-bar-mode 0)
-  (menu-bar-mode 0))
+  (menu-bar-mode 0)
+  (add-to-list 'exec-path "/home/kevin/anaconda/bin"))
 
 (progn ;    `borg'
   (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
@@ -162,7 +163,14 @@
   (add-hook 'org-mode-hook #'visual-line-mode) ;Wraps text based on word boundries
   :config
   (setq org-startup-indented t)         ; Cleaner look
-  (setq org-log-done t))
+  (setq org-log-done t)
+  (progn
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((emacs-lisp . t)
+       (python . t)
+       (shell . t)))))
+
 
 (use-package company                    ; Graphical (auto-)completion
   :init
@@ -190,7 +198,7 @@
   :defer t
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  :bind
+  :bind*
   ("M-p" . ace-window))
 
 (use-package ivy                        ; Minibuffer completion
@@ -226,6 +234,15 @@
     (when (file-exists-p file)
       (load file))))
 
+(with-eval-after-load 'python
+  (defun python-shell-completion-native-try ()
+    "Return non-nil if can trigger native completion."
+    (let ((python-shell-completion-native-enable t)
+          (python-shell-completion-native-output-timeout
+           python-shell-completion-native-try-output-timeout))
+      (python-shell-completion-native-get-completions
+       (get-buffer-process (current-buffer))
+       nil "_"))))
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; End:
