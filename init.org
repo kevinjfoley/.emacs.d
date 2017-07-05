@@ -104,27 +104,6 @@
       (setq indent-tabs-mode nil))
     (add-hook 'lisp-interaction-mode-hook #'indent-spaces-mode))
 
-  (use-package magit
-    :defer t
-    :bind (("C-x g"   . magit-status)
-           ("C-x M-g" . magit-dispatch-popup))
-    :config
-    (magit-add-section-hook 'magit-status-sections-hook
-                            'magit-insert-modules-unpulled-from-upstream
-                            'magit-insert-unpulled-from-upstream)
-    (magit-add-section-hook 'magit-status-sections-hook
-                            'magit-insert-modules-unpulled-from-pushremote
-                            'magit-insert-unpulled-from-upstream)
-    (magit-add-section-hook 'magit-status-sections-hook
-                            'magit-insert-modules-unpushed-to-upstream
-                            'magit-insert-unpulled-from-upstream)
-    (magit-add-section-hook 'magit-status-sections-hook
-                            'magit-insert-modules-unpushed-to-pushremote
-                            'magit-insert-unpulled-from-upstream)
-    (magit-add-section-hook 'magit-status-sections-hook
-                            'magit-insert-submodules
-                            'magit-insert-unpulled-from-upstream))
-
   (use-package man
     :defer t
     :config (setq Man-width 80))
@@ -154,33 +133,6 @@
   (progn ;    `text-mode'
     (add-hook 'text-mode-hook #'indicate-buffer-boundaries-left))
 
-  (use-package tramp
-    :defer t
-    :config
-    (add-to-list 'tramp-default-proxies-alist '(nil "\\`root\\'" "/ssh:%h:"))
-    (add-to-list 'tramp-default-proxies-alist '("localhost" nil nil))
-    (add-to-list 'tramp-default-proxies-alist
-                 (list (regexp-quote (system-name)) nil nil)))
-
-  (use-package solarized-theme
-    :config
-    (load-theme 'solarized-dark t))
-
-  (use-package org
-    :defer t
-    :init
-    (add-hook 'org-mode-hook #'visual-line-mode) ;Wraps text based on word boundries
-    :config
-    (setq org-startup-indented t)         ; Cleaner look
-    (setq org-log-done t)
-    (progn
-      (org-babel-do-load-languages
-       'org-babel-load-languages
-       '((emacs-lisp . t)
-         (python . t)
-         (shell . t)))))
-
-
   (use-package company                    ; Graphical (auto-)completion
     :init
     (global-company-mode)
@@ -203,13 +155,36 @@
     (add-hook 'python-mode-hook #'elpy-mode)
     (setq elpy-rpc-backend "jedi"))
 
-  (use-package ace-window
+#+END_SRC
+* Language Setup
+** Python
+* Version Control
+** magit
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
     :defer t
+    :bind (("C-x g"   . magit-status)
+           ("C-x M-g" . magit-dispatch-popup))
     :config
-    (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-    :bind*
-    ("M-p" . ace-window))
-
+    (magit-add-section-hook 'magit-status-sections-hook
+                            'magit-insert-modules-unpulled-from-upstream
+                            'magit-insert-unpulled-from-upstream)
+    (magit-add-section-hook 'magit-status-sections-hook
+                            'magit-insert-modules-unpulled-from-pushremote
+                            'magit-insert-unpulled-from-upstream)
+    (magit-add-section-hook 'magit-status-sections-hook
+                            'magit-insert-modules-unpushed-to-upstream
+                            'magit-insert-unpulled-from-upstream)
+    (magit-add-section-hook 'magit-status-sections-hook
+                            'magit-insert-modules-unpushed-to-pushremote
+                            'magit-insert-unpulled-from-upstream)
+    (magit-add-section-hook 'magit-status-sections-hook
+                            'magit-insert-submodules
+                            'magit-insert-unpulled-from-upstream))
+#+END_SRC
+* Completions
+** Ivy
+#+BEGIN_SRC emacs-lisp
   (use-package ivy                        ; Minibuffer completion
     :defer t
     :init (ivy-mode 1)
@@ -224,7 +199,50 @@
           ivy-re-builders-alist
           '((t . ivy--regex-fuzzy)))      ;Uses flx-more matches, better sorting
     :diminish ivy-mode)
-
+#+END_SRC
+* Window Management
+** ace-window
+#+BEGIN_SRC emacs-lisp
+  (use-package ace-window
+    :defer t
+    :config
+    (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+    :bind*
+    ("M-p" . ace-window))
+#+END_SRC
+* Remote Files
+** Tramp
+#+BEGIN_SRC emacs-lisp
+  (use-package tramp
+    :defer t
+    :config
+    (add-to-list 'tramp-default-proxies-alist '(nil "\\`root\\'" "/ssh:%h:"))
+    (add-to-list 'tramp-default-proxies-alist '("localhost" nil nil))
+    (add-to-list 'tramp-default-proxies-alist
+                 (list (regexp-quote (system-name)) nil nil)))
+#+END_SRC
+* Themes
+** Solarized
+#+BEGIN_SRC emacs-lisp
+  (use-package solarized-theme
+    :config
+    (load-theme 'solarized-dark t))
+#+END_SRC
+* org-mode
+#+BEGIN_SRC emacs-lisp 
+  (use-package org
+    :defer t
+    :init
+    (add-hook 'org-mode-hook #'visual-line-mode) ;Wraps text based on word boundries
+    :config
+    (setq org-startup-indented t)         ; Cleaner look
+    (setq org-log-done t)
+    (progn
+      (org-babel-do-load-languages
+       'org-babel-load-languages
+       '((emacs-lisp . t)
+         (python . t)
+         (shell . t)))))
 #+END_SRC
 * EOF
 #+BEGIN_SRC emacs-lisp

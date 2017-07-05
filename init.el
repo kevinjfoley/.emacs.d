@@ -95,27 +95,6 @@
     (setq indent-tabs-mode nil))
   (add-hook 'lisp-interaction-mode-hook #'indent-spaces-mode))
 
-(use-package magit
-  :defer t
-  :bind (("C-x g"   . magit-status)
-         ("C-x M-g" . magit-dispatch-popup))
-  :config
-  (magit-add-section-hook 'magit-status-sections-hook
-                          'magit-insert-modules-unpulled-from-upstream
-                          'magit-insert-unpulled-from-upstream)
-  (magit-add-section-hook 'magit-status-sections-hook
-                          'magit-insert-modules-unpulled-from-pushremote
-                          'magit-insert-unpulled-from-upstream)
-  (magit-add-section-hook 'magit-status-sections-hook
-                          'magit-insert-modules-unpushed-to-upstream
-                          'magit-insert-unpulled-from-upstream)
-  (magit-add-section-hook 'magit-status-sections-hook
-                          'magit-insert-modules-unpushed-to-pushremote
-                          'magit-insert-unpulled-from-upstream)
-  (magit-add-section-hook 'magit-status-sections-hook
-                          'magit-insert-submodules
-                          'magit-insert-unpulled-from-upstream))
-
 (use-package man
   :defer t
   :config (setq Man-width 80))
@@ -145,6 +124,71 @@
 (progn ;    `text-mode'
   (add-hook 'text-mode-hook #'indicate-buffer-boundaries-left))
 
+(use-package company                    ; Graphical (auto-)completion
+  :init
+  (global-company-mode)
+  :config
+  (setq
+   company-tooltip-align-annotations t
+   company-tooltip-flip-when-above t
+   ;; Easy navigation to candidates with M-<n>
+   company-show-numbers t
+   company-minimum-prefix-length 3
+   company-idle-delay 1)
+  :bind (:map company-active-map
+              ;; Use C-n and C-p to navigate suggestions
+              ("C-n" . company-select-next)
+              ("C-p" . company-select-previous)))
+
+(use-package elpy
+  :defer t
+  :init
+  (add-hook 'python-mode-hook #'elpy-mode)
+  (setq elpy-rpc-backend "jedi"))
+
+(use-package magit
+  :defer t
+  :bind (("C-x g"   . magit-status)
+         ("C-x M-g" . magit-dispatch-popup))
+  :config
+  (magit-add-section-hook 'magit-status-sections-hook
+                          'magit-insert-modules-unpulled-from-upstream
+                          'magit-insert-unpulled-from-upstream)
+  (magit-add-section-hook 'magit-status-sections-hook
+                          'magit-insert-modules-unpulled-from-pushremote
+                          'magit-insert-unpulled-from-upstream)
+  (magit-add-section-hook 'magit-status-sections-hook
+                          'magit-insert-modules-unpushed-to-upstream
+                          'magit-insert-unpulled-from-upstream)
+  (magit-add-section-hook 'magit-status-sections-hook
+                          'magit-insert-modules-unpushed-to-pushremote
+                          'magit-insert-unpulled-from-upstream)
+  (magit-add-section-hook 'magit-status-sections-hook
+                          'magit-insert-submodules
+                          'magit-insert-unpulled-from-upstream))
+
+(use-package ivy                        ; Minibuffer completion
+  :defer t
+  :init (ivy-mode 1)
+  :bind (
+         ("C-c b r" . ivy-resume)
+         ("C-s" . swiper))
+  :config
+  ;; Include recentf and bookmarks to switch buffer, and tune the count format.
+  (setq ivy-use-virtual-buffers t
+        ivy-count-format "(%d/%d) "
+        enable-recursive-minibuffers t
+        ivy-re-builders-alist
+        '((t . ivy--regex-fuzzy)))      ;Uses flx-more matches, better sorting
+  :diminish ivy-mode)
+
+(use-package ace-window
+  :defer t
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  :bind*
+  ("M-p" . ace-window))
+
 (use-package tramp
   :defer t
   :config
@@ -170,51 +214,6 @@
      '((emacs-lisp . t)
        (python . t)
        (shell . t)))))
-
-
-(use-package company                    ; Graphical (auto-)completion
-  :init
-  (global-company-mode)
-  :config
-  (setq
-   company-tooltip-align-annotations t
-   company-tooltip-flip-when-above t
-   ;; Easy navigation to candidates with M-<n>
-   company-show-numbers t
-   company-minimum-prefix-length 3
-   company-idle-delay 1)
-  :bind (:map company-active-map
-              ;; Use C-n and C-p to navigate suggestions
-              ("C-n" . company-select-next)
-              ("C-p" . company-select-previous)))
-
-(use-package elpy
-  :defer t
-  :init
-  (add-hook 'python-mode-hook #'elpy-mode)
-  (setq elpy-rpc-backend "jedi"))
-
-(use-package ace-window
-  :defer t
-  :config
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  :bind*
-  ("M-p" . ace-window))
-
-(use-package ivy                        ; Minibuffer completion
-  :defer t
-  :init (ivy-mode 1)
-  :bind (
-         ("C-c b r" . ivy-resume)
-         ("C-s" . swiper))
-  :config
-  ;; Include recentf and bookmarks to switch buffer, and tune the count format.
-  (setq ivy-use-virtual-buffers t
-        ivy-count-format "(%d/%d) "
-        enable-recursive-minibuffers t
-        ivy-re-builders-alist
-        '((t . ivy--regex-fuzzy)))      ;Uses flx-more matches, better sorting
-  :diminish ivy-mode)
 
 (progn ;     startup
   (message "Loading %s...done (%.3fs)" user-init-file
