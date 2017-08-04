@@ -4,114 +4,151 @@
 [submodule "ace-window"]
 	path = lib/ace-window
 	url = git@github.com:abo-abo/ace-window.git
+	ignore = dirty
 [submodule "auto-compile"]
 	path = lib/auto-compile
 	url = git@github.com:tarsius/auto-compile.git
+	ignore = dirty
 [submodule "avy"]
 	path = lib/avy
 	url = git@github.com:abo-abo/avy.git
+	ignore = dirty
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
+	ignore = dirty
 [submodule "closql"]
 	path = lib/closql
 	url = git@github.com:emacscollective/closql.git
+	ignore = dirty
 [submodule "company"]
 	path = lib/company
 	url = git@github.com:company-mode/company-mode.git
+	ignore = dirty
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
 	no-makeinfo = dash-template.texi
+	ignore = dirty
 [submodule "deferred"]
 	path = lib/deferred
 	url = git@github.com:kiwanami/emacs-deferred.git
+	ignore = dirty
 [submodule "diff-hl"]
 	path = lib/diff-hl
 	url = git@github.com:dgutov/diff-hl.git
+	ignore = dirty
 [submodule "diminish"]
 	path = lib/diminish
 	url = git@github.com:myrjola/diminish.el.git
+	ignore = dirty
 [submodule "ein"]
 	path = lib/ein
 	url = git@github.com:millejoh/emacs-ipython-notebook.git
+	ignore = dirty
 [submodule "elpy"]
 	path = lib/elpy
 	url = git@github.com:jorgenschaefer/elpy.git
+	ignore = dirty
 [submodule "emacsql"]
 	path = lib/emacsql
 	url = git@github.com:skeeto/emacsql.git
 	no-byte-compile = emacsql-pg.el
+	ignore = dirty
 [submodule "epkg"]
 	path = lib/epkg
 	url = git@github.com:emacscollective/epkg.git
+	ignore = dirty
 [submodule "finalize"]
 	path = lib/finalize
 	url = git@github.com:skeeto/elisp-finalize.git
+	ignore = dirty
 [submodule "flx"]
 	path = lib/flx
 	url = git@github.com:lewang/flx.git
+	ignore = dirty
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
+	ignore = dirty
 [submodule "highlight-indentation"]
 	path = lib/highlight-indentation
 	url = git@github.com:antonj/Highlight-Indentation-for-Emacs.git
+	ignore = dirty
 [submodule "hydra"]
 	path = lib/hydra
 	url = git@github.com:abo-abo/hydra.git
+	ignore = dirty
 [submodule "ivy"]
 	path = lib/ivy
 	url = git@github.com:abo-abo/swiper.git
+	ignore = dirty
 [submodule "js2-mode"]
 	path = lib/js2-mode
 	url = git@github.com:mooz/js2-mode.git
+	ignore = dirty
 [submodule "magit"]
 	path = lib/magit
 	url = git@github.com:magit/magit.git
 	info-path = Documentation
+	ignore = dirty
 [submodule "multiple-cursors"]
 	path = lib/multiple-cursors
 	url = git@github.com:magnars/multiple-cursors.el.git
+	ignore = dirty
 [submodule "nxhtml"]
 	path = lib/nxhtml
 	url = git@github.com:emacsorphanage/nxhtml.git
+	ignore = dirty
 [submodule "org"]
 	path = lib/org
 	url = git://orgmode.org/org-mode.git
+	ignore = dirty
 [submodule "packed"]
 	path = lib/packed
 	url = git@github.com:tarsius/packed.git
+	ignore = dirty
 [submodule "pyvenv"]
 	path = lib/pyvenv
 	url = git@github.com:jorgenschaefer/pyvenv.git
+	ignore = dirty
 [submodule "request"]
 	path = lib/request
 	url = git@github.com:tkf/emacs-request.git
+	ignore = dirty
 [submodule "s"]
 	path = lib/s
 	url = git@github.com:magnars/s.el.git
+	ignore = dirty
 [submodule "simple-httpd"]
 	path = lib/simple-httpd
 	url = git@github.com:skeeto/emacs-web-server.git
+	ignore = dirty
 [submodule "skewer-mode"]
 	path = lib/skewer-mode
 	url = git@github.com:skeeto/skewer-mode.git
+	ignore = dirty
 [submodule "solarized-theme"]
 	path = lib/solarized-theme
 	url = git@github.com:bbatsov/solarized-emacs.git
+	ignore = dirty
 [submodule "spacemacs-theme"]
 	path = lib/spacemacs-theme
 	url = git@github.com:nashamri/spacemacs-theme.git
+	ignore = dirty
 [submodule "use-package"]
 	path = lib/use-package
 	url = git@github.com:jwiegley/use-package.git
+	ignore = dirty
 [submodule "websocket"]
 	path = lib/websocket
 	url = git@github.com:ahyatt/emacs-websocket.git
+	ignore = dirty
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = git@github.com:magit/with-editor.git
+	ignore = dirty
 [submodule "yasnippet"]
 	path = lib/yasnippet
 	url = git@github.com:joaotavora/yasnippet.git
+	ignore = dirty
