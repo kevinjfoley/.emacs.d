@@ -100,6 +100,9 @@
 [submodule "solarized-theme"]
 	path = lib/solarized-theme
 	url = git@github.com:bbatsov/solarized-emacs.git
+[submodule "spacemacs-theme"]
+	path = lib/spacemacs-theme
+	url = git@github.com:nashamri/spacemacs-theme.git
 [submodule "use-package"]
 	path = lib/use-package
 	url = git@github.com:jwiegley/use-package.git

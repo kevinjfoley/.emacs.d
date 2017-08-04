@@ -201,9 +201,12 @@
   (add-to-list 'tramp-default-proxies-alist
                (list (regexp-quote (system-name)) nil nil)))
 
-(use-package solarized-theme
-  :config
-  (load-theme 'solarized-dark t))
+(use-package spacemacs-theme
+  :defer t
+  :init (load-theme 'spacemacs-dark t))
+
+(add-to-list 'default-frame-alist
+             '(font . "Source Code Pro-10:weight=normal:width=normal"))
 
 (use-package org
   :defer t
@@ -246,7 +249,3 @@
       (python-shell-completion-native-get-completions
        (get-buffer-process (current-buffer))
        nil "_"))))
-;; Local Variables:
-;; indent-tabs-mode: nil
-;; End:
-;;; init.el ends here

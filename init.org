@@ -227,12 +227,24 @@
     (add-to-list 'tramp-default-proxies-alist
                  (list (regexp-quote (system-name)) nil nil)))
 #+END_SRC
-* Themes
-** Solarized
-#+BEGIN_SRC emacs-lisp
+* Appearance 
+** Themes
+*** Solarized
+#+BEGIN_SRC emacs-lisp :tangle no
   (use-package solarized-theme
     :config
     (load-theme 'solarized-dark t))
+#+END_SRC
+*** Spacemacs
+#+BEGIN_SRC emacs-lisp
+  (use-package spacemacs-theme
+    :defer t
+    :init (load-theme 'spacemacs-dark t))
+#+END_SRC
+** Font
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'default-frame-alist
+               '(font . "Source Code Pro-10:weight=normal:width=normal"))
 #+END_SRC
 * org-mode
 #+BEGIN_SRC emacs-lisp 
