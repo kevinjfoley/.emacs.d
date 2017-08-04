@@ -146,6 +146,10 @@
   (add-hook 'python-mode-hook #'elpy-mode)
   (setq elpy-rpc-backend "jedi"))
 
+(use-package ein
+  :config (setq ein:output-type-preference 'ein:output-type-prefer-pretty-text-over-html)
+  :commands (ein:notebooklist-open))
+
 (use-package magit
   :defer t
   :bind (("C-x g"   . magit-status)

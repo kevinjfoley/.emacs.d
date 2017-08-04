@@ -158,6 +158,12 @@
 #+END_SRC
 * Language Setup
 ** Python
+*** EIN
+#+BEGIN_SRC emacs-lisp
+  (use-package ein
+    :config (setq ein:output-type-preference 'ein:output-type-prefer-pretty-text-over-html)
+    :commands (ein:notebooklist-open))
+#+END_SRC
 * Version Control
 ** magit
 #+BEGIN_SRC emacs-lisp
