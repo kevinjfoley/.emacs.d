@@ -206,6 +206,11 @@
           '((t . ivy--regex-fuzzy)))      ;Uses flx-more matches, better sorting
     :diminish ivy-mode)
 #+END_SRC
+** which-key
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :config (which-key-mode))
+#+END_SRC
 * Window Management
 ** ace-window
 #+BEGIN_SRC emacs-lisp

@@ -144,6 +144,10 @@
 	path = lib/websocket
 	url = git@github.com:ahyatt/emacs-websocket.git
 	ignore = dirty
+[submodule "which-key"]
+	path = lib/which-key
+	url = git@github.com:justbur/emacs-which-key.git
+	ignore = dirty
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = git@github.com:magit/with-editor.git

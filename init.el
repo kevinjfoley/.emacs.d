@@ -186,6 +186,9 @@
         '((t . ivy--regex-fuzzy)))      ;Uses flx-more matches, better sorting
   :diminish ivy-mode)
 
+(use-package which-key
+  :config (which-key-mode))
+
 (use-package ace-window
   :defer t
   :config
