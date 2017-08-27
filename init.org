@@ -266,6 +266,9 @@
        '((emacs-lisp . t)
          (python . t)
          (shell . t)))))
+  (use-package org-bullets
+    :commands (org-bullets-mode)
+    :init (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 #+END_SRC
 * EOF
 #+BEGIN_SRC emacs-lisp

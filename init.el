@@ -224,6 +224,9 @@
      '((emacs-lisp . t)
        (python . t)
        (shell . t)))))
+(use-package org-bullets
+  :commands (org-bullets-mode)
+  :init (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 (progn ;     startup
   (message "Loading %s...done (%.3fs)" user-init-file
