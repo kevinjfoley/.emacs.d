@@ -96,10 +96,6 @@
 	path = lib/multiple-cursors
 	url = git@github.com:magnars/multiple-cursors.el.git
 	ignore = dirty
-[submodule "nxhtml"]
-	path = lib/nxhtml
-	url = git@github.com:emacsorphanage/nxhtml.git
-	ignore = dirty
 [submodule "org"]
 	path = lib/org
 	url = git://orgmode.org/org-mode.git
@@ -135,10 +131,6 @@
 [submodule "solarized-theme"]
 	path = lib/solarized-theme
 	url = git@github.com:bbatsov/solarized-emacs.git
-	ignore = dirty
-[submodule "spacemacs-theme"]
-	path = lib/spacemacs-theme
-	url = git@github.com:nashamri/spacemacs-theme.git
 	ignore = dirty
 [submodule "use-package"]
 	path = lib/use-package
